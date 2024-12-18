@@ -20,7 +20,7 @@ entryListPresenter.init()
 
 function handleNewTripCreated(){
     console.log('Reached hhhh')
-    //tripListPresenter.addTrip()
+    entryListPresenter.addOperation()
 }
 
 
@@ -30,13 +30,11 @@ let operations = [
     { id: 2, type: 'expense', category: 'transport', amount: 38 }
 ];
 
-let balance = 262.00;
+
 
 // DOM Elements
 const totalBalanceElement = document.getElementById('totalBalance');
-const operationTypeSelect = document.getElementById('operationType');
-const categorySelect = document.getElementById('category');
-const amountInput = document.getElementById('amount');
+
 const addOperationBtn = document.getElementById('addOperation');
 
 const operationFilter = document.getElementById('operationFilter');
@@ -55,10 +53,10 @@ function updateBalance() {
 
 
 // Event Listeners
-addOperationBtn.addEventListener('click', addOperation);
-operationFilter.addEventListener('change', displayOperations);
-categoryFilter.addEventListener('change', displayOperations);
+// addOperationBtn.addEventListener('click', addOperation);
+// operationFilter.addEventListener('change', displayOperations);
+// categoryFilter.addEventListener('change', displayOperations);
 
-// Initial display
-updateBalance();
-displayOperations();
+// // Initial display
+// updateBalance();
+// displayOperations();

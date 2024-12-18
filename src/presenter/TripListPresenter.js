@@ -53,19 +53,23 @@ export default class EntryListPresenter{
         console.log(`Reacehed herer: ${trip.id} ${this.#tripsModel.trips.length}`)
         this.#tripsModel.deleteTrip(trip.id)
     }
-    addTrip(){
-        const destination=document.querySelector('#trip-destination');
-        const date=document.querySelector('#trip-date');
-        const notes=document.querySelector('#trip-notes');
-        console.log(`Showing`)
-        if(!destination||!date||!notes){
-            console.log(`Showing`)
-            return
+    addOperation(){
+        const operationTypeSelect = document.getElementById('operationType');
+        const categorySelect = document.getElementById('category');
+        const amountInput = document.getElementById('amount');
+        const type = operationTypeSelect.value;
+        const category = categorySelect.value;
+        const amount = parseFloat(amountInput.value);
+    
+        if (!type || !category || isNaN(amount)) {
+            alert('Пожалуйста, заполните все поля');
+            return;
         }
-        console.log('Reached hhhh')
-        this.#tripsModel.addTrip({'id':Math.floor(Math.random()*99),'destination':destination.value,'date':date.value,'notes':notes.value})
-        document.querySelector('#trip-destination').value=''
-        document.querySelector('#trip-date').value=''
-        document.querySelector('#trip-notes').value=''
+        this.#tripsModel.addOperation({'type':type,'category':category,'amount':amount})
+         // Reset form
+        operationTypeSelect.value = '';
+        categorySelect.value = '';
+        amountInput.value = '';
+        this.#displayOperations();
     }
 }

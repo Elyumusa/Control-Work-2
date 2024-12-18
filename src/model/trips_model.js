@@ -8,12 +8,13 @@ export default class TripsModel{
     get operations(){
         return this.#operations
     }
+    balance = 262.00;
 
     // Add new operation
- addOperation() {
-    const type = operationTypeSelect.value;
-    const category = categorySelect.value;
-    const amount = parseFloat(amountInput.value);
+ addOperation(op) {
+    const type = op.type;
+    const category = op.category;
+    const amount = op.amount;
 
     if (!type || !category || isNaN(amount)) {
         alert('Пожалуйста, заполните все поля');
@@ -31,18 +32,13 @@ export default class TripsModel{
 
     // Update balance
     if (type === 'income') {
-        balance += amount;
+        this.balance += amount;
     } else {
-        balance -= amount;
+        this.balance -= amount;
     }
-    updateBalance();
+    //updateBalance();
 
-    // Reset form
-    operationTypeSelect.value = '';
-    categorySelect.value = '';
-    amountInput.value = '';
-
-    displayOperations();
+   
 }
    // Delete operation
  deleteOperation(id) {

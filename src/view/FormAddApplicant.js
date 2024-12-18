@@ -2,7 +2,7 @@ import { createElement } from "../framework/render.js"
 
 function createFormAddApplicantTemplate() {
     return (`
-        <div class="operation-form">
+        <form class="operation-form">
                 <select id="operationType">
                     <option value="" disabled selected>Выберите тип операции</option>
                     <option value="income">Доход</option>
@@ -19,8 +19,8 @@ function createFormAddApplicantTemplate() {
     
                 <input type="number" id="amount" placeholder="Сумма" step="0.01">
                 
-                <button id="addOperation">Добавить операцию</button>
-            </div>  
+                <button id="addOperation" type="submit">Добавить операцию</button>
+            </form>  
         `)
 }
 
