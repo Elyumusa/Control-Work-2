@@ -4,6 +4,7 @@ import TripListPresenter from "./presenter/TripListPresenter.js"
 import FormAddTripComponent from "./view/FormAddApplicant.js"
 import ApplicantsFilterComponent from "./view/ApplicantsFilterComponent.js"
 import EntryListPresenter from "./presenter/TripListPresenter.js"
+import BalanceComponent from "./view/balanceComponent.js"
 
 
 const tripsModel=new TripsModel()
@@ -13,6 +14,9 @@ const formEntryComponent=new FormAddTripComponent({onSubmit:handleNewTripCreated
 const formContainer=document.querySelector('.financeEntrySection')
 const filterEntriesContainer=document.querySelector('.filters')
 const entriesfilterComponent=new ApplicantsFilterComponent({onSubmit:()=>{}})
+const balanceContainer=document.querySelector('.balance')
+const balanceComponent= new BalanceComponent({balance:tripsModel.balance})
+render(balanceComponent, balanceContainer)
 render(formEntryComponent,formContainer)
 render(entriesfilterComponent,filterEntriesContainer)
 entryListPresenter.init()
@@ -41,9 +45,6 @@ const operationFilter = document.getElementById('operationFilter');
 const categoryFilter = document.getElementById('categoryFilter');
 
 // Update balance display
-function updateBalance() {
-    totalBalanceElement.textContent = balance.toFixed(2);
-}
 
 
 

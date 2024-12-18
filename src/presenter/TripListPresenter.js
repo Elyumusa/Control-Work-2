@@ -53,6 +53,7 @@ export default class EntryListPresenter{
         console.log(`Reacehed herer: ${trip.id} ${this.#tripsModel.operations.length}`)
         this.#tripsModel.deleteOperation(trip.id)
         this.#clearTripListSection();
+        this.updateBalance();
         this.#displayOperations();
     }
     addOperation(){
@@ -73,6 +74,11 @@ export default class EntryListPresenter{
         categorySelect.value = '';
         amountInput.value = '';
         this.#clearTripListSection();
+        this.updateBalance();
         this.#displayOperations();
+    }
+    updateBalance() {
+        const totalBalanceElement = document.getElementById('totalBalance');
+        totalBalanceElement.textContent = this.#tripsModel.balance.toFixed(2);
     }
 }
