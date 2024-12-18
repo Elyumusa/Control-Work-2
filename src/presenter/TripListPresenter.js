@@ -50,8 +50,10 @@ export default class EntryListPresenter{
         this.#triplistComponent.getelement().innerHTML='';
     }
     deleteTrip(trip){
-        console.log(`Reacehed herer: ${trip.id} ${this.#tripsModel.trips.length}`)
-        this.#tripsModel.deleteTrip(trip.id)
+        console.log(`Reacehed herer: ${trip.id} ${this.#tripsModel.operations.length}`)
+        this.#tripsModel.deleteOperation(trip.id)
+        this.#clearTripListSection();
+        this.#displayOperations();
     }
     addOperation(){
         const operationTypeSelect = document.getElementById('operationType');

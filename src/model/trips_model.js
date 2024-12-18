@@ -28,7 +28,7 @@ export default class TripsModel{
         amount
     };
 
-    this.#operations.push(newOperation);
+    operations.push(newOperation);
 
     // Update balance
     if (type === 'income') {
@@ -46,13 +46,12 @@ export default class TripsModel{
     if (operationIndex !== -1) {
         const operation = operations[operationIndex];
         if (operation.type === 'income') {
-            balance -= operation.amount;
+            this.balance -= operation.amount;
         } else {
-            balance += operation.amount;
+            this.balance += operation.amount;
         }
         operations.splice(operationIndex, 1);
-        updateBalance();
-        displayOperations();
+        //updateBalance();
     }
 }
 
