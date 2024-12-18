@@ -64,7 +64,7 @@ export default class EntryListPresenter{
         const category = categorySelect.value;
         const amount = parseFloat(amountInput.value);
     
-        if (!type || !category || isNaN(amount)) {
+        if (!type || !category || isNaN(amount) || amount<0) {
             alert('Пожалуйста, заполните все поля');
             return;
         }
