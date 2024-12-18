@@ -31,7 +31,7 @@ export default class EntryListPresenter{
         const matchesCategory = catFilter === 'all' || op.category === catFilter;
         return matchesType && matchesCategory;
     });
-    
+    console.log(`${filteredOperations.length}`)
     for (let index = 0; index < filteredOperations.length; index++) {
         const op=filteredOperations[index]
         //Create book component
@@ -70,6 +70,7 @@ export default class EntryListPresenter{
         operationTypeSelect.value = '';
         categorySelect.value = '';
         amountInput.value = '';
+        this.#clearTripListSection();
         this.#displayOperations();
     }
 }

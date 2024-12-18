@@ -28,7 +28,7 @@ export default class TripsModel{
         amount
     };
 
-    operations.push(newOperation);
+    this.#operations.push(newOperation);
 
     // Update balance
     if (type === 'income') {
